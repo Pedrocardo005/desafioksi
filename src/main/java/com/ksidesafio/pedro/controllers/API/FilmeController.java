@@ -1,17 +1,17 @@
-package com.ksidesafio.pedro.controllers;
+package com.ksidesafio.pedro.controllers.API;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ksidesafio.pedro.models.Filme;
 import com.ksidesafio.pedro.services.FilmeService;
 
-@Controller
-@RequestMapping("")
+@RestController
+@RequestMapping("/filmes")
 public class FilmeController {
     @Autowired
     private FilmeService filmeService;
