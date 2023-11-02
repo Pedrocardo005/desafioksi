@@ -33,7 +33,7 @@ public class FilmeService {
         return filmeRepository.save(filme);
     }
 
-    public void choiceFilme(String id) {
+    public Filme choiceFilme(String id) {
         Locale.setDefault(Locale.US);        
         RestTemplate restTemplate = new RestTemplate();
 
@@ -51,10 +51,13 @@ public class FilmeService {
                 filme.setDiretor(responseBody.Director);
                 
                 create(filme);
-                System.out.println("Criou o filme");
+                return filme;
             } catch (Exception e) {
-                System.out.println("Erro gerado" + e.getMessage());
+                System.out.println("Erro " + e.getMessage());
+                return null;
             }
+        } else {
+            return null;
         }
     }
 

@@ -3,6 +3,8 @@ package com.ksidesafio.pedro.controllers.API;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,17 +22,20 @@ public class FavoriteFilmeController {
     FavoriteFilmeService favoriteFilmeService;
 
     @GetMapping
-    public ArrayList<FavoriteFilme> findAll() {
-        return favoriteFilmeService.findAll();
+    public ResponseEntity<ArrayList<FavoriteFilme>> findAll() {
+        ArrayList<FavoriteFilme> favoritos = favoriteFilmeService.findAll();
+        return new ResponseEntity<ArrayList<FavoriteFilme>>( favoritos, HttpStatus.OK);
     }
 
     @PostMapping
-    public FavoriteFilme create(@RequestBody FavoriteFilme favoriteFilme) {
-        return favoriteFilmeService.create(favoriteFilme);
+    public ResponseEntity<FavoriteFilme> create(@RequestBody FavoriteFilme favoriteFilme) {
+        FavoriteFilme favorite = favoriteFilmeService.create(favoriteFilme);
+        return new ResponseEntity<FavoriteFilme>(favorite, HttpStatus.CREATED);
     }
 
     @PatchMapping
-    public FavoriteFilme update(@RequestBody FavoriteFilme favoriteFilme) {
-        return favoriteFilmeService.update(favoriteFilme);
+    public ResponseEntity<FavoriteFilme> update(@RequestBody FavoriteFilme favoriteFilme) {
+        FavoriteFilme favorite = favoriteFilmeService.update(favoriteFilme);
+        return new ResponseEntity<FavoriteFilme>(favorite, HttpStatus.OK);
     }
 }

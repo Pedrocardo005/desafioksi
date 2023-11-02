@@ -25,14 +25,15 @@ public class FilmeController {
     private FilmeService filmeService;
 
     @GetMapping
-    public ArrayList<Filme> getAll() {
-        return filmeService.getAll();
+    public ResponseEntity<ArrayList<Filme>> getAll() {
+        ArrayList<Filme> filmes = filmeService.getAll();
+        return new ResponseEntity<ArrayList<Filme>>(filmes, HttpStatus.OK);
     }
 
     @PostMapping
-    public String choiceFilme(@RequestBody FavoritePost favoritePost) {
-        filmeService.choiceFilme(favoritePost.favoriteFilme);
-        return "Sucesso";
+    public ResponseEntity<Filme> choiceFilme(@RequestBody FavoritePost favoritePost) {
+        Filme filme = filmeService.choiceFilme(favoritePost.favoriteFilme);
+        return new ResponseEntity<Filme>(filme, HttpStatus.CREATED);
     }
 
     @PatchMapping
@@ -42,7 +43,8 @@ public class FilmeController {
     }
 
     @DeleteMapping("/{identifier}")
-    public void deleteFilme(@PathVariable("identifier") Integer identifier) {
+    public ResponseEntity<String> deleteFilme(@PathVariable("identifier") Integer identifier) {
         filmeService.deleteFilme(identifier);
+        return new ResponseEntity<String>("Deleted", HttpStatus.OK);
     }
 }
