@@ -35,7 +35,7 @@ public class FilmeController {
         return "Sucesso";
     }
 
-    @PatchMapping("/filme")
+    @PatchMapping()
     public ResponseEntity<Filme> updateFilme(@RequestBody Filme filme) {
         Filme editedFilme = filmeService.updatFilme(filme);
         return new ResponseEntity<Filme>(editedFilme, HttpStatus.OK);

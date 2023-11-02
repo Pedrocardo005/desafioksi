@@ -19,7 +19,7 @@ form.addEventListener("submit", function (ev) {
         body: JSON.stringify(filme),
     }
 
-    fetch("http://localhost:8080/filmes/filme", options)
+    fetch("http://localhost:8080/filmes", options)
         .then(response => {
             if(response.ok) {
                 console.log("A reposta", response.text());
