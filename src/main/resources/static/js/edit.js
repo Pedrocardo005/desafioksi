@@ -22,7 +22,7 @@ form.addEventListener("submit", function (ev) {
     fetch("http://localhost:8080/filmes", options)
         .then(response => {
             if(response.ok) {
-                console.log("A reposta", response.text());
+                window.location.href = "http://localhost:8080/";
             }
         });
 });
