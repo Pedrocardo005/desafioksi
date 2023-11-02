@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="hidden" name="id" th:value="${filme.id}">
+        <input type="text" name="nome" th:value="${filme.nome}">
+        <input type="date" name="anoLancamento" th:value="${#dates.format(filme.anoLancamento, 'yyyy-MM-dd')}">
+        <input type="text" name="diretor" th:value="${filme.diretor}">
+        <button type="submit">Enviar</button>
+    </form>
+    <script src="/js/edit.js"></script>
+</body>
+</html>

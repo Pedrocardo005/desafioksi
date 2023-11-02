@@ -12,7 +12,7 @@
 <body>
     
     <div class="flex">
-        <form method="post" action="/filmes">
+        <form method="post" action="/filmes" id="send-film">
             <select name="favorite_filme" class="form-select" aria-label="Default select example">
                 <option th:each="filme : ${favorite_filmes}" th:value="${filme.imdbID}" th:text="${filme.brTitle}"></option>
             </select>
@@ -32,6 +32,8 @@
                     <th>
                         diretor
                     </th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -41,6 +43,16 @@
                     <td th:text="${filme.anoLancamento}">
                     </td>
                     <td th:text="${filme.diretor}">                        
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success">
+                            <a th:href="@{'/filme/' + ${filme.id}}">
+                                Editar
+                            </a>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger">Excluir</button>
                     </td>
                 </tr>
             </tbody>

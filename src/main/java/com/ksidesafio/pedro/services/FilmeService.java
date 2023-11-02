@@ -15,6 +15,7 @@ import com.ksidesafio.pedro.repository.FilmeRepository;
 
 import java.util.Date;
 import java.util.Locale;
+import java.util.Optional;
 
 @Service
 public class FilmeService {
@@ -55,5 +56,18 @@ public class FilmeService {
                 System.out.println("Erro gerado" + e.getMessage());
             }
         }
+    }
+
+    public Filme getById(Integer id) {
+        Optional<Filme> optionalFilme = filmeRepository.findById(id);
+        if (optionalFilme.isPresent()) {
+            return optionalFilme.get();
+        } else {
+            return null;
+        }
+    }
+
+    public Filme updatFilme(Filme filme) {
+        return filmeRepository.save(filme);
     }
 }

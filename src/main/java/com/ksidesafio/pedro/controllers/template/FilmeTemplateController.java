@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.ksidesafio.pedro.models.FavoriteFilme;
 import com.ksidesafio.pedro.models.Filme;
@@ -20,7 +21,7 @@ public class FilmeTemplateController {
 
     @Autowired
     private FilmeService filmeService;
-    
+
     @GetMapping
     public String index(Model model) {
         ArrayList<FavoriteFilme> favoriteFilmes;
@@ -32,5 +33,14 @@ public class FilmeTemplateController {
         model.addAttribute("filmes", filmes);
 
         return "index.html";
+    }
+
+    @GetMapping("/filme/{id}")
+    public String filme(@PathVariable("id") int id, Model model) {
+        Filme filme = filmeService.getById(id);
+
+        model.addAttribute("filme", filme);
+
+        return "edit.html";
     }
 }
