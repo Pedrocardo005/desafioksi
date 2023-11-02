@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ksidesafio.pedro.models.FavoritePost;
 import com.ksidesafio.pedro.models.Filme;
 import com.ksidesafio.pedro.services.FilmeService;
-
-import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/filmes")
@@ -31,9 +30,8 @@ public class FilmeController {
     }
 
     @PostMapping
-    public String choiceFilme(HttpServletRequest request) {
-        String texto = request.getParameter("favorite_filme");
-        filmeService.choiceFilme(texto);
+    public String choiceFilme(@RequestBody FavoritePost favoritePost) {
+        filmeService.choiceFilme(favoritePost.favoriteFilme);
         return "Sucesso";
     }
 
