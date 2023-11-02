@@ -70,4 +70,8 @@ public class FilmeService {
     public Filme updatFilme(Filme filme) {
         return filmeRepository.save(filme);
     }
+
+    public void deleteFilme(Integer id) {
+        filmeRepository.deleteById(id);
+    }
 }
