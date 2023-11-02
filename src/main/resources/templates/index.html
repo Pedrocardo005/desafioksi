@@ -22,8 +22,8 @@
             <button>Enviar</button>
         </form>
     </div>
-    <div>
-        <table>
+    <div class="container mt-3">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>
@@ -42,7 +42,7 @@
             <tbody>
                 <tr th:each="filme : ${filmes}">
                     <td th:text="${filme.nome}">Nome</td>
-                    <td th:text="${filme.anoLancamento}">Ano de lançamento</td>
+                    <td th:text="${#dates.format(filme.anoLancamento, 'dd/MM/yyyy')}">Ano de lançamento</td>
                     <td th:text="${filme.diretor}">Diretor</td>
                     <td>
                         <button type="button" class="btn btn-success">
