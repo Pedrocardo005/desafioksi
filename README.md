@@ -10,3 +10,8 @@
 ### IDE
 
  - Vscode
+
+
+### Rodar a aplicação com docker-compose
+
+ Instale o docker e docker compose, em seguida, rode o comando `docker-compose up -d --build`
