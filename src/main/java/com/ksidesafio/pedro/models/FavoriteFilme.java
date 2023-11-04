@@ -24,9 +24,32 @@ public class FavoriteFilme {
     @Column(name = "brtitle")
     private String brTitle;
 
+    @Column
+    private String ano;
+
+    @Column
+    private String diretor;
+
     public FavoriteFilme() {
 
     }
+
+    public String getAno() {
+        return ano;
+    }
+
+    public void setAno(String ano) {
+        this.ano = ano;
+    }
+
+    public String getDiretor() {
+        return diretor;
+    }
+
+    public void setDiretor(String diretor) {
+        this.diretor = diretor;
+    }
+
 
     public Integer getId() {
         return id;

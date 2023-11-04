@@ -16,7 +16,7 @@
     <div class="flex">
         <form method="post" action="/filmes" id="send-film">
             <select name="favoriteFilme" class="form-select" aria-label="Default select example">
-                <option th:each="movie : ${favorite_filmes}" th:value="${movie.imdbID}" th:text="${movie.brTitle}">
+                <option th:each="movie : ${favorite_filmes}" th:value="${movie.imdbID}" th:text="${movie.brTitle + ' - ' + movie.ano + ' - ' + movie.diretor}">
                 </option>
             </select>
             <div class="center-button">
