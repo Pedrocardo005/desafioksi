@@ -19,7 +19,9 @@
                 <option th:each="movie : ${favorite_filmes}" th:value="${movie.imdbID}" th:text="${movie.brTitle}">
                 </option>
             </select>
-            <button>Enviar</button>
+            <div class="center-button">
+                <button class="btn btn-warning">Enviar</button>
+            </div>
         </form>
     </div>
     <div class="container mt-3">
@@ -65,7 +67,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Excluir este item</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">

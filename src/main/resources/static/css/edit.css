@@ -3,11 +3,6 @@ form {
     margin: 0 auto;
 }
 
-a {
-    text-decoration: none;
-    color: white;
-}
-
 .center-button {
     display: flex;
     justify-content: center;
